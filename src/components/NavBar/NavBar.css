@@ -1,0 +1,278 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0 4%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 68px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 10%, transparent);
+  transition: all 0.3s ease;
+}
+
+.navbar-scrolled {
+  background-color: rgb(20, 20, 20);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo-container {
+  height: 25px;
+  min-width: 90px;
+  max-width: 120px;
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 50px;
+}
+
+/* Search Box Styles */
+.search-container {
+  position: relative;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-icon, .search-close {
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.search-close {
+  position: absolute;
+  right: 10px;
+}
+
+.search-input {
+  position: absolute;
+  right: 0;
+  width: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-size: 14px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.search-input.show {
+  width: 230px;
+  padding: 8px 36px 8px 12px;
+  border-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  opacity: 1;
+}
+
+.search-input.show:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+  width: 260px;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100vh;
+  background-color: rgb(20, 20, 20);
+  z-index: 1001;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+}
+
+.mobile-menu.show {
+  left: 0;
+}
+
+.mobile-menu-header {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-menu {
+  color: #fff;
+  cursor: pointer;
+}
+
+.mobile-menu-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-menu-content a {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-content a:hover {
+  color: #fff;
+}
+
+/* Profile Menu Styles */
+.profile-menu {
+  position: relative;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.dropdown-icon {
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.dropdown-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 8px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 960px) {
+  .desktop-only {
+    display: none;
+  }
+  
+  .mobile-only {
+    display: block;
+  }
+
+  .navbar-right {
+    gap: 10px;
+  }
+
+  .search-input.show {
+    width: 180px;
+  }
+
+  .search-input.show:focus {
+    width: 200px;
+  }
+}
+
+@media (min-width: 961px) {
+  .desktop-only {
+    display: flex;
+  }
+  
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* Animation for dropdown */
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-dropdown {
+  animation: dropdownFadeIn 0.2s ease forwards;
+}
